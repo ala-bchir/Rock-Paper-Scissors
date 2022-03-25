@@ -24,7 +24,7 @@ let  palyRound= (player=playerSelection(),computer=computerPlay())=>{
     //Paper
     if (player=="paper" ){
         if (computer == "scissors"){
-            return "computer win ! "
+            return "Computer win !"
         }else if (computer == "rock"){
             return "Player win !"
         }else return "it's a tie !"
@@ -32,16 +32,16 @@ let  palyRound= (player=playerSelection(),computer=computerPlay())=>{
     //Rock
     if (player=="rock" ){
         if (computer == "scissors"){
-            return "Player win ! "
+            return "Player win !"
         }else if (computer == "rock"){
             return "it's a tie !"
-        }else return "Player win !"
+        }else return "Computer win !"
     }
 
     //Scissors
     if (player=="scissors" ){
         if (computer == "rock"){
-            return "computer win ! "
+            return "Computer win !"
         }else if (computer == "paper"){
             return "Player win !"
         }else return "it's a tie !"
@@ -49,5 +49,30 @@ let  palyRound= (player=playerSelection(),computer=computerPlay())=>{
     
 
 }
+let pScore = 0 ; 
+let cScore = 0 ;
 
-console.log(palyRound());
+function game(){
+    
+    for(let i = 0 ; i < 5 ; i++){
+        console.log("round : "+(i+1)) ;
+        let result = palyRound();
+        if (result ==  "Player win !"){
+            pScore+=1;
+        }else if (result ==  "Computer win !"){
+            cScore+=1;
+        }
+        console.log("Actual score :" );
+        console.log("computer:"+cScore);
+        console.log("Player:"+pScore);
+    }
+
+
+    if (pScore > cScore){
+        console.log("Player win the game ! ");
+    }else if (pScore < cScore){
+        console.log("Computer win the game.")
+    }else console.log("it's a tie game");
+}
+
+game();
