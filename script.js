@@ -1,6 +1,6 @@
 
-
-
+const playerScore = document.querySelector('.Player');
+const computerScore = document.querySelector('.Computer');
 
 
 
@@ -19,10 +19,9 @@ let computerPlay = ()=>{
 
 
 
-let playerSelection = ()=>{
-    return   prompt("choose paper , rock or scissors");
+
         
-}
+
 
 
 let  playRound= (player,computer=computerPlay())=>{
@@ -32,27 +31,33 @@ let  playRound= (player,computer=computerPlay())=>{
     //Paper
     if (player=="paper" ){
         if (computer == "scissors"){
-            return "Computer win !"
+            cScore+=1;
+            computerScore.innerHTML= "Computer: "+cScore;
         }else if (computer == "rock"){
-            return "Player win !"
-        }else return "it's a tie !"
+            pScore+=1;
+            playerScore.innerHTML= "Player: "+pScore;
+        }else return 3
     }
     //Rock
     if (player=="rock" ){
         if (computer == "scissors"){
-            return "Player win !"
-        }else if (computer == "rock"){
-            return "it's a tie !"
-        }else return "Computer win !"
+            pScore+=1;
+            playerScore.innerHTML= "Player: "+pScore;
+        }else if (computer == "paper"){
+            cScore+=1;
+            computerScore.innerHTML= "Computer: "+cScore;
+        }else return 3
     }
 
     //Scissors
     if (player=="scissors" ){
         if (computer == "rock"){
-            return "Computer win !"
+            cScore+=1;
+            computerScore.innerHTML= "Computer: "+cScore;
         }else if (computer == "paper"){
-            return "Player win !"
-        }else return "it's a tie !"
+            pScore+=1;
+            playerScore.innerHTML= "Player: "+pScore;
+        }else return 3
     }
     
 
@@ -61,41 +66,52 @@ let pScore = 0 ;
 let cScore = 0 ;
 let exit = false ; 
 
-function game(){
-
-    
-    
-    for(let i = 0 ; i < 5 ; i++){
-        console.log("round : "+(i+1)) ;
-        let result = playRound();
-        if (result ==  "Player win !"){
-            pScore+=1;
-        }else if (result ==  "Computer win !"){
-            cScore+=1;
-        }
-        console.log("Actual score :" );
-        console.log("computer:"+cScore);
-        console.log("Player:"+pScore);
+function Winner(){
+    if (pScore == 5){
+        console.log("player wiiin");
+        pScore = 0 ;
+        cScore = 0 ;
+        playerScore.innerHTML= "Player: "+pScore;
+        computerScore.innerHTML= "Computer: "+cScore;
     }
+    if (cScore == 5){
+        console.log("uter wiiin");
+        pScore = 0 ;
+        cScore = 0 ;
+        playerScore.innerHTML= "Player: "+pScore;
+        computerScore.innerHTML= "Computer: "+cScore;
+    }
+}
 
     
-    if (pScore > cScore){
-        console.log("Player win the game ! ");
-    }else if (pScore < cScore){
-        console.log("Computer win the game.")
-    }else console.log("it's a tie game");
-}
+// const setScore = () =>{
+//     if (pScore >5 || cScore>5){
+//         pScore = 0 ;
+//         cScore = 0 ;
+//         playerScore.innerHTML= "Player: "+pScore;
+//         computerScore.innerHTML= "Computer: "+cScore;
+//     }
+// }
+    
+
+
+    
+
+
+    
+
 
 const buttons = document.querySelectorAll('.choice');
 
 buttons.forEach(button => {
 
     button.addEventListener('click',e =>{
-        playRound(e.target.id,computerPlay);
-        console.log(e.target.id);
+        playRound(e.target.id,computerPlay());
+        Winner();
+        
     });
     
 });
 
-game();
+
 
