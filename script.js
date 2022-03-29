@@ -103,7 +103,7 @@ function Winner(){//Display winner and set score to zero.
     
 
 
-const buttons = document.querySelectorAll('.choice');
+const buttons = document.querySelectorAll('i');
 
 buttons.forEach(button => {
 
