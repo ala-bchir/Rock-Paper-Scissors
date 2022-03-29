@@ -1,6 +1,8 @@
 
 const playerScore = document.querySelector('.Player');
 const computerScore = document.querySelector('.Computer');
+const c_choice = document.querySelector('.c_choice');
+const winner = document.querySelector('.winner');
 
 
 
@@ -25,7 +27,7 @@ let computerPlay = ()=>{
 
 
 let  playRound= (player,computer=computerPlay())=>{
-    console.log(`Computer choice : ${computer}`);
+    c_choice.innerHTML="Computer choice : "+computer;
     console.log(`Player choice : ${player}`);
 
     //Paper
@@ -66,32 +68,32 @@ let pScore = 0 ;
 let cScore = 0 ;
 let exit = false ; 
 
-function Winner(){
+function Winner(){//Display winner and set score to zero.
     if (pScore == 5){
-        console.log("player wiiin");
+        winner.innerHTML ="Player WIN ! ";
         pScore = 0 ;
         cScore = 0 ;
         playerScore.innerHTML= "Player: "+pScore;
         computerScore.innerHTML= "Computer: "+cScore;
+        setTimeout(()=>{
+            winner.innerHTML="";
+        },3000);
     }
     if (cScore == 5){
-        console.log("uter wiiin");
+        winner.innerHTML="Computer win :(";
         pScore = 0 ;
         cScore = 0 ;
-        playerScore.innerHTML= "Player: "+pScore;
-        computerScore.innerHTML= "Computer: "+cScore;
+        playerScore.innerHTML= "Player : "+pScore;
+        computerScore.innerHTML= "Computer : "+cScore;
+        setTimeout(()=>{
+            winner.innerHTML="";
+        },3000);
+        
     }
 }
 
     
-// const setScore = () =>{
-//     if (pScore >5 || cScore>5){
-//         pScore = 0 ;
-//         cScore = 0 ;
-//         playerScore.innerHTML= "Player: "+pScore;
-//         computerScore.innerHTML= "Computer: "+cScore;
-//     }
-// }
+
     
 
 
