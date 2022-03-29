@@ -1,7 +1,13 @@
 
+
+
+
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
+
 
 
 const tab =["rock","paper","scissors"];
@@ -12,12 +18,14 @@ let computerPlay = ()=>{
 
 
 
+
 let playerSelection = ()=>{
-    return  prompt("choose paper , rock or scissors");
+    return   prompt("choose paper , rock or scissors");
+        
 }
 
 
-let  palyRound= (player=playerSelection(),computer=computerPlay())=>{
+let  playRound= (player,computer=computerPlay())=>{
     console.log(`Computer choice : ${computer}`);
     console.log(`Player choice : ${player}`);
 
@@ -51,12 +59,15 @@ let  palyRound= (player=playerSelection(),computer=computerPlay())=>{
 }
 let pScore = 0 ; 
 let cScore = 0 ;
+let exit = false ; 
 
 function game(){
+
+    
     
     for(let i = 0 ; i < 5 ; i++){
         console.log("round : "+(i+1)) ;
-        let result = palyRound();
+        let result = playRound();
         if (result ==  "Player win !"){
             pScore+=1;
         }else if (result ==  "Computer win !"){
@@ -67,7 +78,7 @@ function game(){
         console.log("Player:"+pScore);
     }
 
-
+    
     if (pScore > cScore){
         console.log("Player win the game ! ");
     }else if (pScore < cScore){
@@ -75,4 +86,16 @@ function game(){
     }else console.log("it's a tie game");
 }
 
+const buttons = document.querySelectorAll('.choice');
+
+buttons.forEach(button => {
+
+    button.addEventListener('click',e =>{
+        playRound(e.target.id,computerPlay);
+        console.log(e.target.id);
+    });
+    
+});
+
 game();
+
