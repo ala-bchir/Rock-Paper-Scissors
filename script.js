@@ -2,7 +2,8 @@
 const playerScore = document.querySelector('.Player');
 const computerScore = document.querySelector('.Computer');
 const c_choice = document.querySelector('.c_choice');
-const winner = document.querySelector('.winner');
+const winner = document.querySelector('.winner_msg');
+const header = document.querySelector('.header');
 
 
 
@@ -27,7 +28,7 @@ function c_add_score(){
     playerScore.style.color = "black";
     cScore+=1;
     computerScore.innerHTML= "Computer: "+cScore;
-    computerScore.style.color = "red";
+    computerScore.style.color = "white";
     
 
 }
@@ -36,7 +37,7 @@ function p_add_score(){
     computerScore.style.color = "black";
     pScore+=1;
     playerScore.innerHTML= "Player: "+pScore;
-    playerScore.style.color = "red";
+    playerScore.style.color = "white";
     
     
 
@@ -94,7 +95,7 @@ function reset(){
     setTimeout(()=>{
         winner.innerHTML="";
     },3000);
-    c_choice.innerHTML= "Computer chocie :";
+    c_choice.innerHTML= "Computer choice :";
     playerScore.style.color = "black";
     computerScore.style.color = "black";
 }
@@ -102,11 +103,17 @@ function reset(){
 function Winner(){//Display winner and set score to zero.
     if (pScore == 5){
         winner.innerHTML ="Player WIN ! ";
+        winner.style.color="white";
+        winner.style.display="inline";
         reset();
+        
         
     }
     if (cScore == 5){
         winner.innerHTML="Computer win :(";
+        winner.style.color="white";
+        winner.style.display="inline";
+       
         reset();
         
     }
