@@ -10,4 +10,3 @@ What I learned
 - Event in javaScript
 - how to animate with css
 
-Set your window size on 80% for better view.
