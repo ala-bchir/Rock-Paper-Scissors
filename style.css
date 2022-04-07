@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: #00807a;
     
     
 }
@@ -22,7 +22,7 @@
 .choice_container{
     /* border: 5px solid black; */
     /* border-radius: 10px; */
-    height: 400px ;
+    height: 390px ;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -47,15 +47,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color : red;
+    background-color : #00807a;
     
     
 
 }
 
 .score_container div{
-    margin-top: 10px;
-    height: 50px;
+    margin-top: 7px;
+    
 }
 
 .switch{
@@ -67,11 +67,11 @@
 }
 
 img{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 .img{
-    border: 4px solid black;
+    border: 10px solid #4eb721;
     border-radius: 10px;
     width: 200px;
     height: 200px;
@@ -79,12 +79,12 @@ img{
     justify-content: center;
     align-items: center;
     background-color:yellow;
-    box-shadow: inset 0 0 0 0 #FF0000;
+    box-shadow: inset 0 0 0 0 #ff6d94f7;
     transition: ease-out 0.3s;
 }
 
 .img:hover{
-    box-shadow: inset 280px 0 0 0 #FF0000;
+    box-shadow: inset 280px 0 0 0 #ff6d94f7;
 }
 
 
@@ -94,8 +94,7 @@ img{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    
-    height: 50px;
+    height: 40px;
 }
 
 .copy{
